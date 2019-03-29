@@ -12,12 +12,12 @@
             </li>
             
             <?php
-                if($_SESSION['uloga_korisnika'] == 'gost'){
+                /*if($_SESSION['uloga_korisnika'] == 'gost'){
                     print('<li class="nav-item profile-button"><a class="nav-link" href="?view=login">Prijavite Se <i class="fas fa-user-tie"></i></a></li>');
                 } else{
                     include('models/user.php');
                     print(print_profile_dropdown($_SESSION['ime'], $_SESSION['prezime']));
-                }
+                }*/
             ?>
 
         </ul>
