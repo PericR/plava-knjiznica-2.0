@@ -1,11 +1,16 @@
 <div class="row align-items-center h-100">
 	<div class="col-md-6 offset-md-3">
+		<hr>
 		<ul class="nav nav-pills nav-fill">
 			<li class="nav-item">
-				<a class="nav-link active rounded-0" id="navLinkPrijava" href="?view=login">Prijava</a>
+				<?php
+					echo anchor('home/view/login_view', 'Prijavite se', array('class'=>'nav-link active'));
+				?>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="?view=register">Registracija</a>
+				<?php
+					echo anchor('home/view/register_view', 'Registrirajte se', array('class'=>'nav-link'));
+				?>
 			</li>
 		</ul>
 		<form method="POST" action="controllers/login.php">

@@ -8,18 +8,35 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link navbar-menu-links" href="?view=prodaja">Ponuda <i class="fas fa-book"></i></a>
+                <?php
+                    echo anchor('home/view/ponuda', 'Ponuda <i class="fas fa-book"></i>', array('class'=>'nav-link navbar-menu-links'));
+                ?>
             </li>
-            
-            <?php
-                /*if($_SESSION['uloga_korisnika'] == 'gost'){
-                    print('<li class="nav-item profile-button"><a class="nav-link" href="?view=login">Prijavite Se <i class="fas fa-user-tie"></i></a></li>');
-                } else{
-                    include('models/user.php');
-                    print(print_profile_dropdown($_SESSION['ime'], $_SESSION['prezime']));
-                }*/
-            ?>
-
+            <li class="nav-item">
+                <?php                
+                    if($uloga_korisnika == 'gost')
+                    {
+                        echo anchor('home/view/login_view', 'Prijavite Se <i class="fas fa-user-tie"></i>', array('class'=>'nav-link navbar-menu-links'));
+                    }
+                    else
+                    {
+                        print('<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Profil
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">'.$ime.'</a>
+                            <a class="dropdown-item" href="#">'.$prezime.'</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="?view=dodaj_karticu">Dodaj karticu</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="index.php?odjava=odjava">Odjava</a>
+                        </div>
+                    </li>');
+                    }
+                ?>
+            </li>
         </ul>
     </div>
 </nav>

@@ -1,12 +1,17 @@
 <div class="row">
     <div class="col-md-6 offset-md-3">
+        <hr>
         <ul class="nav nav-pills nav-fill">
-            <li class="nav-item">
-                <a class="nav-link" href="?view=login">Prijava</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="?view=register">Registracija</a>
-            </li>
+        <li class="nav-item">
+				<?php
+					echo anchor('home/view/login_view', 'Prijavite se', array('class'=>'nav-link'));
+				?>
+			</li>
+			<li class="nav-item">
+				<?php
+					echo anchor('home/view/register_view', 'Registrirajte se', array('class'=>'nav-link active'));
+				?>
+			</li>
         </ul>
         <form method="POST" action="controllers/register.php">
             <div class="form-group">
