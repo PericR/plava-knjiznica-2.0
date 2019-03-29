@@ -4,16 +4,16 @@
         <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
 				<?php
-					echo anchor('korisnik/login/login_view', 'Prijavite se', array('class'=>'nav-link'));
+					echo anchor('korisnik/login', 'Prijavite se', array('class'=>'nav-link'));
 				?>
 			</li>
 			<li class="nav-item">
 				<?php
-					echo anchor('korisnik/login/register_view', 'Registrirajte se', array('class'=>'nav-link active'));
+					echo anchor('korisnik/register', 'Registrirajte se', array('class'=>'nav-link active'));
 				?>
 			</li>
         </ul>
-        <form method="POST" action="controllers/register.php">
+        <?php echo form_open('korisnik/register'); ?>
             <div class="form-group">
                 <label for="ime">Vaše Ime</label>
                 <input type="text" class="form-control" name="ime" placeholder="Unesite Vaše Ime" required>
@@ -27,10 +27,10 @@
                 <input type="text" class="form-control" name="korisnicko_ime" placeholder="Korisničko Ime" required>
                 
                 <?php
-                if(isset($_SESSION['zauzeto_korisnicko_ime'])){
-                    print($_SESSION['zauzeto_korisnicko_ime']);
-                    unset($_SESSION['zauzeto_korisnicko_ime']);
-                }
+                //if(isset($_SESSION['zauzeto_korisnicko_ime'])){
+                //    print($_SESSION['zauzeto_korisnicko_ime']);
+                //    unset($_SESSION['zauzeto_korisnicko_ime']);
+                //}
                 ?>
             </div>
             <div class="form-group">

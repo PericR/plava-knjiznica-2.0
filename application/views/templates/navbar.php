@@ -9,7 +9,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <?php
-                    echo anchor('home/view/ponuda', 'Ponuda <i class="fas fa-book"></i>', array('class'=>'nav-link navbar-menu-links'));
+                    echo anchor('ponuda/index', 'Ponuda <i class="fas fa-book"></i>', array('class'=>'nav-link navbar-menu-links'));
                 ?>
             </li>
             <li class="nav-item">
