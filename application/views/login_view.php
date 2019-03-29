@@ -4,16 +4,16 @@
 		<ul class="nav nav-pills nav-fill">
 			<li class="nav-item">
 				<?php
-					echo anchor('home/view/login_view', 'Prijavite se', array('class'=>'nav-link active'));
+					echo anchor('korisnik/login/login_view', 'Prijavite se', array('class'=>'nav-link active'));
 				?>
 			</li>
 			<li class="nav-item">
 				<?php
-					echo anchor('home/view/register_view', 'Registrirajte se', array('class'=>'nav-link'));
+					echo anchor('korisnik/login/register_view', 'Registrirajte se', array('class'=>'nav-link'));
 				?>
 			</li>
 		</ul>
-		<form method="POST" action="controllers/login.php">
+		<?php echo form_open('korisnik/login'); ?>
 			<div class="form-group">
 				<label for="korisnicko_ime">Korisničko ime</label>
 				<div class="input-group">

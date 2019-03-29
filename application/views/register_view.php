@@ -4,12 +4,12 @@
         <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
 				<?php
-					echo anchor('home/view/login_view', 'Prijavite se', array('class'=>'nav-link'));
+					echo anchor('korisnik/login/login_view', 'Prijavite se', array('class'=>'nav-link'));
 				?>
 			</li>
 			<li class="nav-item">
 				<?php
-					echo anchor('home/view/register_view', 'Registrirajte se', array('class'=>'nav-link active'));
+					echo anchor('korisnik/login/register_view', 'Registrirajte se', array('class'=>'nav-link active'));
 				?>
 			</li>
         </ul>

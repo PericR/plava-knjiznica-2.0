@@ -16,7 +16,7 @@
                 <?php                
                     if($uloga_korisnika == 'gost')
                     {
-                        echo anchor('home/view/login_view', 'Prijavite Se <i class="fas fa-user-tie"></i>', array('class'=>'nav-link navbar-menu-links'));
+                        echo anchor('korisnik/login/login_view', 'Prijavite Se <i class="fas fa-user-tie"></i>', array('class'=>'nav-link navbar-menu-links'));
                     }
                     else
                     {
