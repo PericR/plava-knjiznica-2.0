@@ -63,6 +63,15 @@
                 $this->load->view('register_view');
                 $this->load->view('templates/footer');
             }
+            else if( $this->input->post('lozinka') !== $this->input->post('ponovljena_lozinka'))
+            {
+                $data['nepodudarajuce_lozinke'] = '<small class="text-danger">lozinke se ne poklapaju!</small>';
+
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/navbar', $data);
+                $this->load->view('register_view', $data);
+                $this->load->view('templates/footer');
+            }
             else
             {
                 $this->korisnik_model->register();

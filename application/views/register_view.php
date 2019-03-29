@@ -42,9 +42,8 @@
                 <input type="password" class="form-control" name="ponovljena_lozinka" placeholder="Ponovite Vašu Lozinku" required>
 
                 <?php
-                if(isset($_SESSION['nepoklapajuce_lozinke'])){
-                    print($_SESSION['nepoklapajuce_lozinke']);
-                    unset($_SESSION['nepoklapajuce_lozinke']);
+                if(isset($nepodudarajuce_lozinke)){
+                    print($nepodudarajuce_lozinke);
                 }
                 ?>
             </div>
