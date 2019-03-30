@@ -13,8 +13,8 @@
         
         public function login()
         {
-            $this->form_validation->set_rules('korisnicko_ime', 'Korisničko ime', 'required');
-            $this->form_validation->set_rules('lozinka', 'Lozinka', 'required');
+            $this->form_validation->set_rules('korisnicko_ime', 'Korisničko ime', 'trim|required|max_length[32]');
+            $this->form_validation->set_rules('lozinka', 'Lozinka', 'trim|required|max_length[32]');
 
             if($this->form_validation->run() == FALSE)
             {

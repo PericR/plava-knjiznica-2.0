@@ -22,14 +22,16 @@
 							<i class="fas fa-user-tie"></i>
 						</span>
 					</div>
-					<input type="text" name="korisnicko_ime" class="form-control" placeholder="Korisničko Ime?">					
+					<input type="text" name="korisnicko_ime" class="form-control" placeholder="Korisničko Ime?">	
 				</div>
 				<?php
             		if(isset($nepostojeci_korisnik)){
 						print($nepostojeci_korisnik);
             		}
                 ?>
+				<small class="text-danger"><?php echo form_error('korisnicko_ime'); ?></small>
 			</div>
+
 			<div class="form-group">
 				<label for="lozinka">Lozinka:</label>
 				<div class="input-group">
@@ -38,9 +40,11 @@
 							<i class="fas fa-key"></i>
 						</span>
 					</div>
-					<input type="password" name="lozinka" class="form-control" placeholder="Vaša Lozinka">					
+					<input type="password" name="lozinka" class="form-control" placeholder="Vaša Lozinka">								
 				</div>
+				<small class="text-danger"><?php echo form_error('lozinka'); ?></small>			
 			</div>
+			
 			<button class="btn btn-primary" type="submit" name="prijava">
 				<i class="fas fa-sign-in-alt"></i>
 				Prijavite se
