@@ -30,6 +30,11 @@
                             <a class="dropdown-item" href="#">'.$this->session->prezime.'</a>
                             <div class="dropdown-divider"></div>');
                         echo anchor('korisnik/dodaj_karticu', 'Dodaj Karticu', array('class' => 'dropdown-item'));
+
+                        if($this->session->uloga_korisnika == 'admin')
+                        {
+                            echo anchor('admin/dodaj_knjigu', 'Nova Knjiga', array('class' => 'dropdown-item'));
+                        }
                         print('<div class="dropdown-divider"></div>');
                         echo anchor('korisnik/odjava', 'Odjavite se', array('class' => 'dropdown-item'));                        
                         print('</div></li>');
