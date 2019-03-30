@@ -18,6 +18,7 @@
 
         public function daj_sve()
         {
+            $this->db->order_by('prezime ASC, ime ASC');
             $query = $this->db->get('autor');
 
             return $query->result_array();
