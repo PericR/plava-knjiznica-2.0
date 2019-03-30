@@ -74,6 +74,19 @@
             {
                 $this->korisnik_model->register();
                 
+                $data['korisnik'] = $this->korisnik_model->login();//omogucavamo trenutni login ako je uspjesna registracija
+
+                if(empty($data['korisnik']))
+                {
+                    show_404();
+                }
+                
+                $this->session->ime = $data['korisnik']['ime'];
+                $this->session->prezime = $data['korisnik']['prezime'];
+                $this->session->korisnicko_ime = $data['korisnik']['korisnicko_ime'];
+                $this->session->id = $data['korisnik']['id'];
+                $this->session->uloga_korisnika = $data['korisnik']['uloga_korisnika'];
+
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
                 $this->load->view('ponuda_view');
