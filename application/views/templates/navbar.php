@@ -14,9 +14,9 @@
             </li>
             <li class="nav-item">
                 <?php                
-                    if($uloga_korisnika == 'gost')
+                    if($this->session->uloga_korisnika == 'gost')
                     {
-                        echo anchor('korisnik/login/login_view', 'Prijavite Se <i class="fas fa-user-tie"></i>', array('class'=>'nav-link navbar-menu-links'));
+                        echo anchor('korisnik/login', 'Prijavite Se <i class="fas fa-user-tie"></i>', array('class'=>'nav-link navbar-menu-links'));
                     }
                     else
                     {
@@ -26,14 +26,13 @@
                             Profil
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">'.$ime.'</a>
-                            <a class="dropdown-item" href="#">'.$prezime.'</a>
+                            <a class="dropdown-item" href="#">'.$this->session->ime.'</a>
+                            <a class="dropdown-item" href="#">'.$this->session->prezime.'</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="?view=dodaj_karticu">Dodaj karticu</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="index.php?odjava=odjava">Odjava</a>
-                        </div>
-                    </li>');
+                            <div class="dropdown-divider"></div>');
+                        echo anchor('korisnik/odjava', 'Odjavite se', array('class' => 'dropdown-item'));                        
+                        print('</div></li>');
                     }
                 ?>
             </li>
