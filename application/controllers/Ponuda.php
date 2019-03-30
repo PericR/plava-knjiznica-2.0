@@ -5,6 +5,8 @@
         {
             parent::__construct();
             $this->load->library('session');
+            $this->load->model('knjiga_model');
+            $this->load->helper('url');
         }
 
         public function index()
@@ -15,11 +17,11 @@
                 $this->session->uloga_korisnika = 'gost';
             }
             
-            $this->load->helper('url');
+            $data['knjige'] = $this->knjiga_model->daj_sve();
 
             $this->load->view('templates/header');
             $this->load->view('templates/navbar');
-            $this->load->view('ponuda_view');
+            $this->load->view('ponuda_view', $data);
             $this->load->view('templates/footer');
         }
     }

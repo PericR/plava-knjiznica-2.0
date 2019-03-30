@@ -8,4 +8,12 @@
         echo $this->session->id.' ';
         echo $this->session->uloga_korisnika;
     ?>
+
+    <?php   
+        if(isset($knjige)){
+            foreach($knjige as $knjiga){
+                print('<p>'.$knjiga['id'].' '.$knjiga['naziv'].' '.$knjiga['cijena'].'</p>');
+            }
+        }
+    ?>
 </h1>

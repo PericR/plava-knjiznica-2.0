@@ -47,9 +47,9 @@
             </div>
 
             <div class="form-group">
-                <label for="autor">Autori</label>
+                <label for="autor">Autor</label>
                 <div class="input-group">
-                    <select class="form-control" name="autori">
+                    <select class="form-control" name="autor_id">
                         <?php
                             foreach($autori as $autor){
                                 print('<option value="'.$autor['id'].'">'.$autor['ime'].' '.$autor['prezime'].'</option>');

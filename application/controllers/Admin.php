@@ -28,8 +28,9 @@
             }
             else
             {
+                $this->knjiga_model->dodaj_knjigu($this->input->post('autor_id'), $this->input->post('naziv'), $this->input->post('cijena'));
                 $data['autori'] = $this->autor_model->daj_sve();
-
+                
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
                 $this->load->view('knjiga_view', $data);
