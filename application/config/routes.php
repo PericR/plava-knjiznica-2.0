@@ -49,5 +49,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'home/view';
+$route['default_controller'] = 'ponuda/index';
 $route['(:any)']='home/view/$1';
