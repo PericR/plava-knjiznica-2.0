@@ -29,20 +29,26 @@
 
                 if(empty($data['korisnik']))
                 {
-                    show_404();
+                    $data['nepostojeci_korisnik'] = '<small class="text-danger">Pogrešno korisničko ime ili lozinka!!</small>';
+                    
+                    $this->load->view('templates/header');
+                    $this->load->view('templates/navbar');
+                    $this->load->view('login_view', $data);
+                    $this->load->view('templates/footer');    
                 }
-                
-                $this->session->ime = $data['korisnik']['ime'];
-                $this->session->prezime = $data['korisnik']['prezime'];
-                $this->session->korisnicko_ime = $data['korisnik']['korisnicko_ime'];
-                $this->session->id = $data['korisnik']['id'];
-                $this->session->uloga_korisnika = $data['korisnik']['uloga_korisnika'];
+                else
+                {
+                    $this->session->ime = $data['korisnik']['ime'];
+                    $this->session->prezime = $data['korisnik']['prezime'];
+                    $this->session->korisnicko_ime = $data['korisnik']['korisnicko_ime'];
+                    $this->session->id = $data['korisnik']['id'];
+                    $this->session->uloga_korisnika = $data['korisnik']['uloga_korisnika'];
 
-                $this->load->view('templates/header');
-                $this->load->view('templates/navbar');
-                $this->load->view('ponuda_view');
-                $this->load->view('templates/footer');
-
+                    $this->load->view('templates/header');
+                    $this->load->view('templates/navbar');
+                    $this->load->view('ponuda_view');
+                    $this->load->view('templates/footer');
+                }
             }
         }
         

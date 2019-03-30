@@ -22,13 +22,12 @@
 							<i class="fas fa-user-tie"></i>
 						</span>
 					</div>
-					<input type="text" name="korisnicko_ime" class="form-control" placeholder="Korisničko Ime?" />					
+					<input type="text" name="korisnicko_ime" class="form-control" placeholder="Korisničko Ime?" required>					
 				</div>
 				<?php
-            	//	if(isset($_SESSION['nepostojeci_korisnik'])){
-				//		print($_SESSION['nepostojeci_korisnik']);
-				//		unset($_SESSION['nepostojeci_korisnik']);
-            	//	}
+            		if(isset($nepostojeci_korisnik)){
+						print($nepostojeci_korisnik);
+            		}
                 ?>
 			</div>
 			<div class="form-group">
@@ -39,7 +38,7 @@
 							<i class="fas fa-key"></i>
 						</span>
 					</div>
-					<input type="password" name="lozinka" class="form-control" placeholder="Vaša Lozinka" />					
+					<input type="password" name="lozinka" class="form-control" placeholder="Vaša Lozinka" required>					
 				</div>
 			</div>
 			<button class="btn btn-primary" type="submit" name="prijava">
