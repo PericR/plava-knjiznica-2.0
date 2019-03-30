@@ -54,11 +54,11 @@
         
         public function register()
         {
-            $this->form_validation->set_rules('ime', 'Ime', 'required');
-            $this->form_validation->set_rules('prezime', 'Prezime', 'required');
-            $this->form_validation->set_rules('korisnicko_ime', 'Korisničko Ime', 'required');
-            $this->form_validation->set_rules('lozinka', 'Lozinka', 'required');
-            $this->form_validation->set_rules('ponovljena_lozinka', 'Ponovljena Lozinka', 'required');
+            $this->form_validation->set_rules('ime', 'Ime', 'trim|required|max_length[32]');
+            $this->form_validation->set_rules('prezime', 'Prezime', 'trim|required|max_length[32]');
+            $this->form_validation->set_rules('korisnicko_ime', 'Korisničko Ime', 'trim|required|max_length[32]');
+            $this->form_validation->set_rules('lozinka', 'Lozinka', 'trim|required|min_length[8]|max_length[32]');
+            $this->form_validation->set_rules('ponovljena_lozinka', 'Ponovljena Lozinka', 'trim|required|min_length[8]|max_length[32]');
 
             if($this->form_validation->run() == FALSE)
             {
@@ -119,5 +119,11 @@
             $this->load->view('ponuda_view');
             $this->load->view('templates/footer');
         }
+
+        public function dodaj_karticu()
+        {
+            $this->form_validation->set_rules('broj_kartice', 'Broj Kartice', 'required');
+        }
+
     }
 ?>
