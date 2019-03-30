@@ -6,5 +6,6 @@
         echo $this->session->korisnicko_ime.' ';
         echo $this->session->lozinka.' ';
         echo $this->session->id.' ';
+        echo $this->session->uloga_korisnika;
     ?>
 </h1>

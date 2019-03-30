@@ -28,7 +28,9 @@
         public function provjeri_korisnicko_ime($korisnicko_ime)
         {
             $query = $this->db->get_where('korisnik',array('korisnicko_ime' => $korisnicko_ime), 1);
-            if(empty($query))
+            $data = $query->row_array();
+
+            if(empty($data))
             {
                 return FALSE;
             }

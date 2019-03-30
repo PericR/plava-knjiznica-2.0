@@ -22,7 +22,7 @@
 							<i class="fas fa-user-tie"></i>
 						</span>
 					</div>
-					<input type="text" name="korisnicko_ime" class="form-control" placeholder="Korisničko Ime?" required>					
+					<input type="text" name="korisnicko_ime" class="form-control" placeholder="Korisničko Ime?">					
 				</div>
 				<?php
             		if(isset($nepostojeci_korisnik)){
@@ -38,7 +38,7 @@
 							<i class="fas fa-key"></i>
 						</span>
 					</div>
-					<input type="password" name="lozinka" class="form-control" placeholder="Vaša Lozinka" required>					
+					<input type="password" name="lozinka" class="form-control" placeholder="Vaša Lozinka">					
 				</div>
 			</div>
 			<button class="btn btn-primary" type="submit" name="prijava">

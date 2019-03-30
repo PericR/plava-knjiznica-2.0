@@ -17,44 +17,42 @@
             <div class="form-group">
                 <label for="ime">Vaše Ime</label>
                 <input type="text" class="form-control" name="ime" placeholder="Unesite Vaše Ime">
+                <small class="text-danger"><?php echo form_error('ime'); ?></small>
             </div>
-            <?php echo form_error('ime'); ?>
 
             <div class="form-group">
                 <label for="prezime">Vaše Prezime</label>
                 <input type="text" class="form-control" name="prezime" placeholder="Unesite Vaše Prezime">
+                <small class="text-danger"><?php echo form_error('prezime'); ?></small>
             </div>
-            <?php echo form_error('prezime'); ?>
 
             <div class="form-group">
                 <label for="korisnicko_ime">Vaše Korisničko Ime</label>
                 <input type="text" class="form-control" name="korisnicko_ime" placeholder="Korisničko Ime">
-                
+                <small class="text-danger"><?php echo form_error('korisnicko_ime'); ?></small>
                 <?php
                 if(isset($zauzeto_korisnicko_ime)){
                     print($zauzeto_korisnicko_ime);
                 }
                 ?>
             </div>
-            <?php echo form_error('korisnicko_ime'); ?>
 
             <div class="form-group">
                 <label for="lozinka">Lozinka</label>
                 <input type="password" class="form-control" name="lozinka" placeholder="Unesite Vašu Lozinku">
-            </div>
-            <?php echo form_error('lozinka'); ?>
+                <small class="text-danger"><?php echo form_error('lozinka'); ?></small>
+            </div>            
 
             <div class="form-group">
                 <label for="ponovljena_lozinka">Ponovite Lozinku</label>
                 <input type="password" class="form-control" name="ponovljena_lozinka" placeholder="Ponovite Vašu Lozinku">
-
+                <small class="text-danger"><?php echo form_error('ponovljena_lozinka'); ?></small>
                 <?php
                 if(isset($nepodudarajuce_lozinke)){
                     print($nepodudarajuce_lozinke);
                 }
                 ?>
             </div>
-            <?php echo form_error('ponovljena_lozinka'); ?>
 
             <div>
                 <button class="btn btn-primary" type="submit" name="registracija">
