@@ -20,7 +20,7 @@
         {
             $query = $this->db->get('autor');
 
-            return $query->row_array();
+            return $query->result_array();
         }
     }
 ?>

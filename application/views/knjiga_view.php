@@ -47,8 +47,16 @@
             </div>
 
             <div class="form-group">
-                <label for="autor">Ime autora</label>
-
+                <label for="autor">Autori</label>
+                <div class="input-group">
+                    <select class="form-control" name="autori">
+                        <?php
+                            foreach($autori as $autor){
+                                print('<option value="'.$autor['id'].'">'.$autor['ime'].' '.$autor['prezime'].'</option>');
+                            }
+                        ?>
+                    </select>
+                </div>                
             </div>
 
             <button class="btn btn-primary" type="submit" name="dodaj_knjigu">				

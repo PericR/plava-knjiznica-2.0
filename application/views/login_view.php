@@ -13,7 +13,8 @@
 				?>
 			</li>
 		</ul>
-		<?php echo form_open('korisnik/login'); ?>
+		
+		<?php echo form_open('korisnik/login'); ?>		
 			<div class="form-group">
 				<label for="korisnicko_ime">Korisničko ime</label>
 				<div class="input-group">

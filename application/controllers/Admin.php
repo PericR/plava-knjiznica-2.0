@@ -19,16 +19,20 @@
 
             if($this->form_validation->run() == FALSE)
             {
+                $data['autori'] = $this->autor_model->daj_sve();
+
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
-                $this->load->view('knjiga_view');
+                $this->load->view('knjiga_view', $data);
                 $this->load->view('templates/footer');    
             }
             else
             {
+                $data['autori'] = $this->autor_model->daj_sve();
+
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
-                $this->load->view('knjiga_view');
+                $this->load->view('knjiga_view', $data);
                 $this->load->view('templates/footer');    
             }
         }
@@ -40,18 +44,21 @@
 
             if($this->form_validation->run() == FALSE)
             {                
+                $data['autori'] = $this->autor_model->daj_sve();
+
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
-                $this->load->view('knjiga_view');
+                $this->load->view('knjiga_view', $data);
                 $this->load->view('templates/footer');    
             }
             else
             {
                 $this->autor_model->dodaj_autora($this->input->post('ime'), $this->input->post('prezime'));
+                $data['autori'] = $this->autor_model->daj_sve();
 
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
-                $this->load->view('knjiga_view');
+                $this->load->view('knjiga_view', $data);
                 $this->load->view('templates/footer');
             }
         }
