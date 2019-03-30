@@ -2,7 +2,7 @@
     <div class="col-md-6 offset-md-3">
         <hr>
         <h2>Unesite podatke o vašoj kartici</h2>
-        <form method="POST" action="controllers/dodaj_karticu.php">
+        <?php echo form_open('korisnik/dodaj_karticu'); ?>
             <div class="form-group">
                 <label for="tip_kartice">Tip Kartice</label>
                 <div class="input-group">
@@ -14,18 +14,21 @@
                     </select>
                 </div>                
             </div>
+
             <div class="form-group">
                 <label for="broj_kartice">Broj Kartice</label>
                 <div class="input-group">
-                    <input class="form-control" type="text" name="broj_kartice" pattern="\d{16}">
+                    <input class="form-control" type="number" name="broj_kartice">
                 </div>
+                <small class="text-danger"><?php echo form_error('broj_kartice'); ?></small>
             </div>
 
             <div class="form-group">
                 <label for="cvv">CVV</label>
                 <div class="input-group">
-                <input class="form-control" type="text" name="cvv" pattern="\d{3}">
+                <input class="form-control" type="number" name="cvv">
                 </div>
+                <small class="text-danger"><?php echo form_error('cvv'); ?></small>
             </div>
 
             <div class="form-group">
@@ -33,6 +36,7 @@
                 <div class="input-group">
                     <input class="form-control" type="date" name="expire_date">
                 </div>
+                <small class="text-danger"><?php echo form_error('expire_date'); ?></small>
             </div>
 
             <button class="btn btn-primary" type="submit" name="dodaj_karticu">				

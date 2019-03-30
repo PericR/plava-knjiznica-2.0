@@ -27,7 +27,7 @@
             {                
                 $data['korisnik'] = $this->korisnik_model->login($this->input->post('korisnicko_ime'), $this->input->post('lozinka'));
 
-                if(empty($data['korisnik']))
+                if(empty($data['korisnik']))//provjera lozinke i korisnickog imena
                 {
                     $data['nepostojeci_korisnik'] = '<small class="text-danger">Pogrešno korisničko ime ili lozinka!!</small>';
                     
@@ -95,7 +95,7 @@
                 {
                     show_404();
                 }
-                
+                //postavljanje sesije kako bi se automatski obavio login pri registraciji
                 $this->session->ime = $data['korisnik']['ime'];
                 $this->session->prezime = $data['korisnik']['prezime'];
                 $this->session->korisnicko_ime = $data['korisnik']['korisnicko_ime'];
@@ -122,7 +122,17 @@
 
         public function dodaj_karticu()
         {
-            $this->form_validation->set_rules('broj_kartice', 'Broj Kartice', 'required');
+            $this->form_validation->set_rules('broj_kartice', 'Broj Kartice', 'trim|required|min_length[16]');
+            $this->form_validation->set_rules('expire_date', 'Vrijedi do', 'required');
+            $this->form_validation->set_rules('cvv','CVV','trim|required|min_length[3]|max_length[3]');
+
+            if($this->form_validation->run() == FALSE)
+            {
+                $this->load->view('templates/header');
+                $this->load->view('templates/navbar');
+                $this->load->view('kartica_view');
+                $this->load->view('templates/footer');
+            }
         }
 
     }

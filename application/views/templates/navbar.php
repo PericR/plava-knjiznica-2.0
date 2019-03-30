@@ -21,16 +21,16 @@
                     else
                     {
                         print('<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Profil
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">'.$this->session->ime.'</a>
                             <a class="dropdown-item" href="#">'.$this->session->prezime.'</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="?view=dodaj_karticu">Dodaj karticu</a>
                             <div class="dropdown-divider"></div>');
+                        echo anchor('korisnik/dodaj_karticu', 'Dodaj Karticu', array('class' => 'dropdown-item'));
+                        print('<div class="dropdown-divider"></div>');
                         echo anchor('korisnik/odjava', 'Odjavite se', array('class' => 'dropdown-item'));                        
                         print('</div></li>');
                     }
