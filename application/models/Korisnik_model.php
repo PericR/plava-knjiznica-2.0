@@ -27,7 +27,7 @@
 
         public function provjeri_korisnicko_ime($korisnicko_ime)
         {
-            $query = $this->db->get_where('korisnik',array('korisnicko_ime' => $korisnicko_ime), 1);
+            $query = $this->db->get_where('korisnik', array('korisnicko_ime' => $korisnicko_ime), 1);
             $data = $query->row_array();
 
             if(empty($data))
@@ -51,6 +51,21 @@
             );
 
             return $this->db->insert('bankovna_kartica', $data);
+        }
+
+        public function provjeri_broj_kartice($broj_kartice)
+        {
+            $query = $this->db->get_where('bankovna_kartica', array('broj_kartice' => $broj_kartice), 1);
+            $data = $query->row_array();
+
+            if(empty($data))
+            {
+                return FALSE;
+            }
+            else
+            {
+                return TRUE;
+            }            
         }
     }
 ?>

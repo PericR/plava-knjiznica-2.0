@@ -22,7 +22,12 @@
                 </div>
                 <small class="text-danger"><?php echo form_error('broj_kartice'); ?></small>
             </div>
-
+            <?php
+                if(isset($zauzet_broj_kartice))
+                {
+                    print($zauzet_broj_kartice);
+                }
+            ?>
             <div class="form-group">
                 <label for="cvv">CVV</label>
                 <div class="input-group">
