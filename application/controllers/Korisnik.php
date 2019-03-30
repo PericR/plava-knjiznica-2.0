@@ -133,6 +133,15 @@
                 $this->load->view('kartica_view');
                 $this->load->view('templates/footer');
             }
+            else
+            {
+                $this->korisnik_model->dodaj_karticu($this->session->id, $this->input->post('broj_kartice'),  $this->input->post('tip_kartice'), $this->input->post('expire_date'), $this->input->post('cvv'));
+
+                $this->load->view('templates/header');
+                $this->load->view('templates/navbar');
+                $this->load->view('ponuda_view');
+                $this->load->view('templates/footer');
+            }
         }
 
     }

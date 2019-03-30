@@ -39,5 +39,18 @@
                 return TRUE;
             }            
         }
+
+        public function dodaj_karticu($id_korisnika, $broj_kartice, $tip_kartice, $expire_date, $cvv)
+        {
+            $data = array(
+                'id_korisnika' => $id_korisnika,
+                'broj_kartice' => $broj_kartice,
+                'tip_kartice' => $tip_kartice,
+                'expire_date' => $expire_date,
+                'cvv' => $cvv
+            );
+
+            return $this->db->insert('bankovna_kartica', $data);
+        }
     }
 ?>
