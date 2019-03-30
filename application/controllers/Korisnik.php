@@ -25,7 +25,7 @@
             }
             else
             {                
-                $data['korisnik'] = $this->korisnik_model->login();
+                $data['korisnik'] = $this->korisnik_model->login($this->input->post('korisnicko_ime'), $this->input->post('lozinka'));
 
                 if(empty($data['korisnik']))
                 {
@@ -70,11 +70,20 @@
                 $this->load->view('register_view', $data);
                 $this->load->view('templates/footer');
             }
+            else if($this->korisnik_model->provjeri_korisnicko_ime($this->input->post('korisnicko_ime')))
+            {
+                $data['zauzeto_korisnicko_ime'] = '<small class="text-danger">Korisničko ime je zauzeto!</small>';
+
+                $this->load->view('templates/header');
+                $this->load->view('templates/navbar');
+                $this->load->view('register_view', $data);
+                $this->load->view('templates/footer');
+            }
             else
             {
                 $this->korisnik_model->register();
                 
-                $data['korisnik'] = $this->korisnik_model->login();//omogucavamo trenutni login ako je uspjesna registracija
+                $data['korisnik'] = $this->korisnik_model->login($this->input->post('korisnicko_ime'), $this->input->post('lozinka'));//omogucavamo trenutni login ako je uspjesna registracija
 
                 if(empty($data['korisnik']))
                 {

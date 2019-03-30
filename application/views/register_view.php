@@ -27,10 +27,9 @@
                 <input type="text" class="form-control" name="korisnicko_ime" placeholder="Korisničko Ime" required>
                 
                 <?php
-                //if(isset($_SESSION['zauzeto_korisnicko_ime'])){
-                //    print($_SESSION['zauzeto_korisnicko_ime']);
-                //    unset($_SESSION['zauzeto_korisnicko_ime']);
-                //}
+                if(isset($zauzeto_korisnicko_ime)){
+                    print($zauzeto_korisnicko_ime);
+                }
                 ?>
             </div>
             <div class="form-group">
