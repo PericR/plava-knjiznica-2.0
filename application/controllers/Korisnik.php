@@ -91,10 +91,6 @@
                 
                 $data['korisnik'] = $this->korisnik_model->login($this->input->post('korisnicko_ime'), $this->input->post('lozinka'));//omogucavamo trenutni login ako je uspjesna registracija
 
-                if(empty($data['korisnik']))
-                {
-                    show_404();
-                }
                 //postavljanje sesije kako bi se automatski obavio login pri registraciji
                 $this->session->ime = $data['korisnik']['ime'];
                 $this->session->prezime = $data['korisnik']['prezime'];

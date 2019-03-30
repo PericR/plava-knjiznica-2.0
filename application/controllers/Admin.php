@@ -47,6 +47,8 @@
             }
             else
             {
+                $this->autor_model->dodaj_autora($this->input->post('ime'), $this->input->post('prezime'));
+
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
                 $this->load->view('knjiga_view');

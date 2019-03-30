@@ -6,6 +6,16 @@
             $this->load->database();
         }
 
+        public function dodaj_autora($ime, $prezime)
+        {
+            $data = array(
+                'ime' => $ime,
+                'prezime' => $prezime
+            );
+            
+            return $this->db->insert('autor', $data);
+        }
+
         public function daj_sve()
         {
             $query = $this->db->get('autor');
