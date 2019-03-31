@@ -18,6 +18,7 @@
 
             if($this->form_validation->run() == FALSE)
             {
+                //loadamo view zbog prikaza greske u formi
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
                 $this->load->view('login_view');
@@ -44,10 +45,7 @@
                     $this->session->id = $data['korisnik']['id'];
                     $this->session->uloga_korisnika = $data['korisnik']['uloga_korisnika'];
 
-                    $this->load->view('templates/header');
-                    $this->load->view('templates/navbar');
-                    $this->load->view('ponuda_view');
-                    $this->load->view('templates/footer');
+                    redirect('ponuda/index');
                 }
             }
         }
@@ -61,7 +59,8 @@
             $this->form_validation->set_rules('ponovljena_lozinka', 'Ponovljena Lozinka', 'trim|required|min_length[8]|max_length[32]');
 
             if($this->form_validation->run() == FALSE)
-            {
+            {   
+                //loadamo view zbog prikaza greske u formi
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
                 $this->load->view('register_view');
@@ -70,7 +69,7 @@
             else if( $this->input->post('lozinka') !== $this->input->post('ponovljena_lozinka'))
             {
                 $data['nepodudarajuce_lozinke'] = '<small class="text-danger">lozinke se ne poklapaju!</small>';
-
+                //provjera lozinki
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
                 $this->load->view('register_view', $data);
@@ -79,7 +78,7 @@
             else if($this->korisnik_model->provjeri_korisnicko_ime($this->input->post('korisnicko_ime')))
             {
                 $data['zauzeto_korisnicko_ime'] = '<small class="text-danger">Korisničko ime je zauzeto!</small>';
-
+                //provjera korisnickog imena
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
                 $this->load->view('register_view', $data);
@@ -98,10 +97,7 @@
                 $this->session->id = $data['korisnik']['id'];
                 $this->session->uloga_korisnika = $data['korisnik']['uloga_korisnika'];
 
-                $this->load->view('templates/header');
-                $this->load->view('templates/navbar');
-                $this->load->view('ponuda_view');
-                $this->load->view('templates/footer');
+                redirect('ponuda/index');
             }
         }
 
@@ -109,11 +105,8 @@
         {
             $this->session->sess_destroy();
             $this->session->uloga_korisnika = 'gost';
-
-            $this->load->view('templates/header');
-            $this->load->view('templates/navbar');
-            $this->load->view('ponuda_view');
-            $this->load->view('templates/footer');
+            
+            redirect('ponuda/index');
         }
 
         public function dodaj_karticu()
@@ -123,7 +116,8 @@
             $this->form_validation->set_rules('cvv','CVV','trim|required|min_length[3]|max_length[3]');
 
             if($this->form_validation->run() == FALSE)
-            {
+            {   
+                //loadamo view zbog prikaza greske u formi
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
                 $this->load->view('kartica_view');
@@ -132,7 +126,7 @@
             else if($this->korisnik_model->provjeri_broj_kartice($this->input->post('broj_kartice')))
             {
                 $data['zauzet_broj_kartice'] = '<small class="text-danger">Kartica sa tim brojem je već dodana</small>';
-
+                //provjera broja kartice
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
                 $this->load->view('kartica_view', $data);
@@ -142,11 +136,7 @@
             else
             {
                 $this->korisnik_model->dodaj_karticu($this->session->id, $this->input->post('broj_kartice'),  $this->input->post('tip_kartice'), $this->input->post('expire_date'), $this->input->post('cvv'));
-
-                $this->load->view('templates/header');
-                $this->load->view('templates/navbar');
-                $this->load->view('ponuda_view');
-                $this->load->view('templates/footer');
+                redirect('ponuda/index');
             }
         }
 

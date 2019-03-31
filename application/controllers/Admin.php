@@ -12,15 +12,25 @@
             $this->load->library('form_validation');
         }
 
-        public function dodaj_knjigu()
+        public function knjige()
         {
+            $data['autori'] = $this->autor_model->daj_sve();
+
+            $this->load->view('templates/header');
+            $this->load->view('templates/navbar');
+            $this->load->view('knjiga_view', $data);
+            $this->load->view('templates/footer');    
+        }
+
+        public function dodaj_knjigu()
+        {            
             $this->form_validation->set_rules('naziv', 'Naziv', 'trim|required|max_length[32]');
             $this->form_validation->set_rules('cijena', 'Cijena', 'trim|required|max_length[32]');
 
             if($this->form_validation->run() == FALSE)
             {
                 $data['autori'] = $this->autor_model->daj_sve();
-
+                //loadamo view zbog prikaza greske u formi
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
                 $this->load->view('knjiga_view', $data);
@@ -29,12 +39,8 @@
             else
             {
                 $this->knjiga_model->dodaj_knjigu($this->input->post('autor_id'), $this->input->post('naziv'), $this->input->post('cijena'));
-                $data['autori'] = $this->autor_model->daj_sve();
-                
-                $this->load->view('templates/header');
-                $this->load->view('templates/navbar');
-                $this->load->view('knjiga_view', $data);
-                $this->load->view('templates/footer');    
+
+                redirect('admin/knjige');
             }
         }
 
@@ -46,7 +52,7 @@
             if($this->form_validation->run() == FALSE)
             {                
                 $data['autori'] = $this->autor_model->daj_sve();
-
+                //loadamo view zbog prikaza greske u formi
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
                 $this->load->view('knjiga_view', $data);
@@ -55,12 +61,8 @@
             else
             {
                 $this->autor_model->dodaj_autora($this->input->post('ime'), $this->input->post('prezime'));
-                $data['autori'] = $this->autor_model->daj_sve();
 
-                $this->load->view('templates/header');
-                $this->load->view('templates/navbar');
-                $this->load->view('knjiga_view', $data);
-                $this->load->view('templates/footer');
+                redirect('admin/knjige');
             }
         }
     }

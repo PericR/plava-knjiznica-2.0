@@ -33,7 +33,7 @@
 
                         if($this->session->uloga_korisnika == 'admin' or $this->session->uloga_korisnika == 'super_admin')
                         {
-                            echo anchor('admin/dodaj_knjigu', 'Nova Knjiga', array('class' => 'dropdown-item'));
+                            echo anchor('admin/knjige', 'Nova Knjiga', array('class' => 'dropdown-item'));
                         }
                         print('<div class="dropdown-divider"></div>');
                         echo anchor('korisnik/odjava', 'Odjavite se', array('class' => 'dropdown-item'));                        

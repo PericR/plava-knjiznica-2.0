@@ -8,7 +8,7 @@
         echo $this->session->id.' ';
         echo $this->session->uloga_korisnika;
     ?>
-
+</h1>
     <?php   
         if(isset($knjige)){
             foreach($knjige as $knjiga){
@@ -16,4 +16,3 @@
             }
         }
     ?>
-</h1>
