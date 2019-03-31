@@ -4,9 +4,7 @@
         function __construct()
         {
             parent::__construct();
-            $this->load->library('session');
             $this->load->model('knjiga_model');
-            $this->load->helper('url');
         }
 
         public function index()
@@ -18,6 +16,7 @@
             }
             
             $data['knjige'] = $this->knjiga_model->daj_sve();
+            $data['test'] = 'neki test';
 
             $this->load->view('templates/header');
             $this->load->view('templates/navbar');

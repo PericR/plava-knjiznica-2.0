@@ -4,12 +4,8 @@
         function __construct()    
         {
             parent::__construct();
-            $this->load->library('session');
             $this->load->model('knjiga_model');    
             $this->load->model('autor_model');     
-            $this->load->helper('url');   
-            $this->load->helper('form');
-            $this->load->library('form_validation');
         }
 
         public function knjige()

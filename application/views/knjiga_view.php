@@ -1,5 +1,6 @@
 <div class="row align-items-center h-100">
-    <div class="col-md-4 offset-md-1">        
+    <div class="col-md-4 offset-md-1">   
+        <hr>     
         <h2>Unesite podatke o autoru</h2>
         <?php echo form_open('admin/dodaj_autora'); ?>
 
@@ -23,10 +24,10 @@
 				Dodaj Autora
 			</button>
         </form>
-        <hr>
     </div>
 
     <div class="col-md-4 offset-md-1">        
+        <hr>
         <h2>Unesite podatke o Knjizi</h2>
         <?php echo form_open('admin/dodaj_knjigu'); ?>
 
@@ -63,6 +64,5 @@
 				Dodaj Knjigu
 			</button>
         </form>
-        <hr>
     </div>
 </div>

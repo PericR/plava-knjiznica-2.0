@@ -15,4 +15,7 @@
                 print('<p>'.$knjiga['id'].' '.$knjiga['naziv'].' '.$knjiga['cijena'].'</p>');
             }
         }
+
+        echo $test;
     ?>
+
