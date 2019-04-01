@@ -18,7 +18,13 @@
     
             return $this->db->insert('knjiga', $data);
         }
-    
+        
+        public function daj_knjigu($id)
+        {
+            $query = $this->db->get_where('knjiga', array('id'=>$id), 1);
+            return $query->row_array();
+        }
+
         public function daj_sve()
         {
             $this->db->order_by('naziv ASC');

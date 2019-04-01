@@ -6,6 +6,7 @@
             parent::__construct();
             $this->load->model('korisnik_model');     
             $this->load->model('narudzba_model');
+            $this->load->model('knjiga_model');
         }        
         
         public function login()
@@ -165,7 +166,8 @@
 
         public function kupovina($id_knjige)
         {
-            $ime_kupca = $this->session->ime.' '.$this->session->prezime;
+            $knjiga = $this->knjiga_model->daj_knjigu($id_knjige);
+            $ime_knjige = $knjiga['naziv'];
             $broj_kartice = $this->korisnik_model->provjeri_id_kartice($this->session->id);
 
             if($broj_kartice == FALSE)
@@ -174,17 +176,18 @@
             }
             else
             {
-                $this->narudzba_model->napravi_narudzbu($id_knjige, $this->session->id, $broj_kartice, $ime_kupca);            
+                $this->narudzba_model->napravi_narudzbu($id_knjige, $this->session->id, $broj_kartice, $ime_knjige);            
                 redirect('korisnik/narudzbe');            
             }
         }
 
         public function narudzbe()
         {
-            $data['narudzbe'] = 
+            $data['narudzbe'] = $this->narudzba_model->daj_narudzbe($this->session->id);
+
             $this->load->view('templates/header');
             $this->load->view('templates/navbar');
-            $this->load->view('uspjesna_kupovina_view');
+            $this->load->view('narudzbe_view', $data);
             $this->load->view('templates/footer');
         }
     }

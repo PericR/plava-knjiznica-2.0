@@ -30,6 +30,7 @@
                             <a class="dropdown-item" href="#">'.$this->session->prezime.'</a>
                             <div class="dropdown-divider"></div>');
                         echo anchor('korisnik/dodaj_karticu', 'Dodaj Karticu', array('class' => 'dropdown-item'));
+                        echo anchor('korisnik/narudzbe', 'Prošle Narudžbe', array('class' => 'dropdown-item'));
 
                         if($this->session->uloga_korisnika == 'admin' or $this->session->uloga_korisnika == 'super_admin')//adminovi linkovi
                         {
