@@ -166,8 +166,7 @@
 
         public function kupovina($id_knjige)
         {
-            $knjiga = $this->knjiga_model->daj_knjigu($id_knjige);
-            $ime_knjige = $knjiga['naziv'];
+            
             $broj_kartice = $this->korisnik_model->provjeri_id_kartice($this->session->id);
 
             if($broj_kartice == FALSE)
@@ -176,7 +175,11 @@
             }
             else
             {
-                $this->narudzba_model->napravi_narudzbu($id_knjige, $this->session->id, $broj_kartice, $ime_knjige);            
+                $knjiga = $this->knjiga_model->daj_knjigu($id_knjige);
+                $ime_knjige = $knjiga['naziv'];
+                $ime_kupca = $this->session->ime.' '.$this->session->prezime;
+
+                $this->narudzba_model->napravi_narudzbu($id_knjige, $this->session->id, $broj_kartice, $ime_knjige, $ime_kupca);            
                 redirect('korisnik/narudzbe');            
             }
         }

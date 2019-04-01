@@ -27,6 +27,7 @@
 
         public function obrisi($id_korisnika)
         {
+            $this->db->delete('bankovna_kartica', array('id_korisnika' => $id_korisnika));
             $this->db->delete('korisnik', array('id' => $id_korisnika), 1);
         }
 

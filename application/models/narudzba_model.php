@@ -6,7 +6,7 @@
             $this->load->database();
         }
 
-        public function napravi_narudzbu($id_knjige, $id_korisnika, $broj_kartice, $ime_knjige)
+        public function napravi_narudzbu($id_knjige, $id_korisnika, $broj_kartice, $ime_knjige, $ime_kupca)
         {            
             $data = array(
                 'id' => null,
@@ -14,7 +14,8 @@
                 'broj_kartice' => $broj_kartice,
                 'knjiga_id' => $id_knjige,
                 'datum_narudzbe' => date('Y-m-d H:i:s'),
-                'ime_knjige' => $ime_knjige
+                'ime_knjige' => $ime_knjige,
+                'ime_kupca' => $ime_kupca
             );
 
             return $this->db->insert('narudzba', $data);
