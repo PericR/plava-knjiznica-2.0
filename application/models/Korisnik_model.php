@@ -72,5 +72,20 @@
                 return TRUE;
             }            
         }
+
+        public function provjeri_id_kartice($id_korisnika)
+        {
+            $query = $this->db->get_where('bankovna_kartica', array('id_korisnika' => $id_korisnika), 1);
+            $data = $query->row_array();
+
+            if(empty($data))
+            {
+                return FALSE;
+            }
+            else
+            {
+                return $data['broj_kartice'];
+            }            
+        }
     }
 ?>

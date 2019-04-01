@@ -4,7 +4,8 @@
         function __construct()
         {
             parent::__construct();
-            $this->load->model('korisnik_model');         
+            $this->load->model('korisnik_model');     
+            $this->load->model('narudzba_model');
         }        
         
         public function login()
@@ -160,6 +161,31 @@
             $this->session->sess_destroy();
 
             redirect('ponuda/index');
+        }
+
+        public function kupovina($id_knjige)
+        {
+            $ime_kupca = $this->session->ime.' '.$this->session->prezime;
+            $broj_kartice = $this->korisnik_model->provjeri_id_kartice($this->session->id);
+
+            if($broj_kartice == FALSE)
+            {
+                redirect('korisnik/dodaj_karticu');            
+            }
+            else
+            {
+                $this->narudzba_model->napravi_narudzbu($id_knjige, $this->session->id, $broj_kartice, $ime_kupca);            
+                redirect('korisnik/narudzbe');            
+            }
+        }
+
+        public function narudzbe()
+        {
+            $data['narudzbe'] = 
+            $this->load->view('templates/header');
+            $this->load->view('templates/navbar');
+            $this->load->view('uspjesna_kupovina_view');
+            $this->load->view('templates/footer');
         }
     }
 ?>
