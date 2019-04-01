@@ -5,6 +5,7 @@
         {
             parent::__construct();
             $this->load->model('knjiga_model');
+            $this->load->model('autor_model');
         }
 
         public function index()
@@ -15,8 +16,7 @@
                 $this->session->uloga_korisnika = 'gost';
             }
             
-            $data['knjige'] = $this->knjiga_model->daj_sve();
-            $data['test'] = 'neki test';
+            $data['knjige'] = $this->knjiga_model->daj_sve();            
 
             $this->load->view('templates/header');
             $this->load->view('templates/navbar');

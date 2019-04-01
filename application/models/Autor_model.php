@@ -23,5 +23,11 @@
 
             return $query->result_array();
         }
+
+        public function daj_autora($id)
+        {
+            $query = $this->db->get_where('autor', array('id' => $id));
+            return $query->row_array();
+        }
     }
 ?>

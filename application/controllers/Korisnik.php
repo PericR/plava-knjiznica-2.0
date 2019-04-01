@@ -14,6 +14,11 @@
 
             if($this->form_validation->run() == FALSE)
             {
+                if(isset($this->session->id))
+                {   //sprjecavamo pristup loginu nakon logina
+                    redirect('ponuda/index');
+                }
+
                 //loadamo view zbog prikaza greske u formi
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
@@ -56,6 +61,11 @@
 
             if($this->form_validation->run() == FALSE)
             {   
+                if(isset($this->session->id))
+                {   //sprjecavamo pristup register stranici nakon logina
+                    redirect('ponuda/index');
+                }
+
                 //loadamo view zbog prikaza greske u formi
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');

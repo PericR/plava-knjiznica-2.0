@@ -34,7 +34,9 @@
             }
             else
             {
-                $this->knjiga_model->dodaj_knjigu($this->input->post('autor_id'), $this->input->post('naziv'), $this->input->post('cijena'));
+                $ime_autora = $this->autor_model->daj_autora($this->input->post('autor_id'));
+                $ime_autora = $ime_autora['ime'].' '.$ime_autora['prezime'];
+                $this->knjiga_model->dodaj_knjigu($this->input->post('autor_id'), $this->input->post('naziv'), $ime_autora, $this->input->post('cijena'));
 
                 redirect('admin/knjige');
             }
