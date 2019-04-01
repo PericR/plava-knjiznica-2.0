@@ -16,7 +16,7 @@
                 $this->session->uloga_korisnika = 'gost';
             }
             
-            $data['knjige'] = $this->knjiga_model->daj_sve();            
+            $data['knjige'] = $this->knjiga_model->daj_sve_dostupne();            
 
             $this->load->view('templates/header');
             $this->load->view('templates/navbar');

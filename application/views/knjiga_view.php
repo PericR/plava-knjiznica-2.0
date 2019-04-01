@@ -66,3 +66,75 @@
         </form>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-md-4 offset-md-1">        
+        <hr>
+        <h2>Postavite kao dostupne</h2>
+        <?php echo form_open('admin/postavite_dostupnost/1'); ?>
+
+            <div class="form group" id="prikazKnjiga">
+                <ul class="list-unstyled">
+                    <li v-for="knjiga in knjige">
+                        <input type="checkbox" name="knjige[]" :value="knjiga.knjiga.id">
+                        {{knjiga.knjiga.naziv}}, {{knjiga.knjiga.autor}}, ID:{{knjiga.knjiga.id}}
+                    </li>
+                </ul>
+            </div>
+            
+            <button class="btn btn-primary" type="submit" name="postavi_dostupne">
+                Dostupne
+            </button>
+        </form>
+    </div>
+
+    <div class="col-md-4 offset-md-1">        
+        <hr>
+        <h2>Postavite kao nedostupne</h2>
+        <?php echo form_open('admin/postavite_dostupnost/0'); ?>
+
+            <div class="form group" id="prikazNedostupnihKnjiga">
+                <ul class="list-unstyled">
+                    <li v-for="knjiga in knjige">
+                        <input type="checkbox" name="knjige[]" :value="knjiga.knjiga.id">
+                        {{knjiga.knjiga.naziv}}, {{knjiga.knjiga.autor}}, ID:{{knjiga.knjiga.id}}
+                    </li>
+                </ul>
+            </div>
+            
+            <button class="btn btn-danger" type="submit" name="postavi_dostupne">
+                Nedostupne
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#prikazKnjiga',
+        data:{
+            knjige: [//punimo podatcima koje smo dobili od controllera
+                <?php
+                    foreach($knjige as $knjiga){
+                        $knjiga_data = '{knjiga: {id: '.$knjiga['id'].', autor: "'.$knjiga['ime_autora'].'", naziv: "'.$knjiga['naziv'].'", cijena: '.$knjiga['cijena'].'}},';
+                        echo $knjiga_data;
+                    }
+                ?>
+            ]
+        }
+    });
+
+    new Vue({
+        el: '#prikazNedostupnihKnjiga',
+        data:{
+            knjige: [//punimo podatcima koje smo dobili od controllera
+                <?php
+                    foreach($knjige as $knjiga){
+                        $knjiga_data = '{knjiga: {id: '.$knjiga['id'].', autor: "'.$knjiga['ime_autora'].'", naziv: "'.$knjiga['naziv'].'", cijena: '.$knjiga['cijena'].'}},';
+                        echo $knjiga_data;
+                    }
+                ?>
+            ]
+        }
+    });
+</script>

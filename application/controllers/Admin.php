@@ -11,6 +11,7 @@
         public function knjige()
         {
             $data['autori'] = $this->autor_model->daj_sve();
+            $data['knjige'] = $this->knjiga_model->daj_sve();
 
             $this->load->view('templates/header');
             $this->load->view('templates/navbar');
@@ -62,6 +63,12 @@
 
                 redirect('admin/knjige');
             }
+        }
+
+        public function postavite_dostupnost($dostupnost)
+        {
+            $this->knjiga_model->postavi_dostupnost($dostupnost, $this->input->post('knjige'));
+            redirect('admin/knjige');
         }
     }
 ?>
