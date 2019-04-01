@@ -167,6 +167,11 @@
         public function kupovina($id_knjige)
         {
             
+            if ($this->session->uloga_korisnika == 'gost') 
+            {
+                redirect('korisnik/login');                
+            }
+
             $broj_kartice = $this->korisnik_model->provjeri_id_kartice($this->session->id);
 
             if($broj_kartice == FALSE)
