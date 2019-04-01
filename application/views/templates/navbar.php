@@ -18,7 +18,7 @@
                     {
                         echo anchor('korisnik/login', 'Prijavite Se <i class="fas fa-user-tie"></i>', array('class'=>'nav-link navbar-menu-links'));
                     }
-                    else
+                    else//korisnikovi linkovi
                     {
                         print('<li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -31,13 +31,13 @@
                             <div class="dropdown-divider"></div>');
                         echo anchor('korisnik/dodaj_karticu', 'Dodaj Karticu', array('class' => 'dropdown-item'));
 
-                        if($this->session->uloga_korisnika == 'admin' or $this->session->uloga_korisnika == 'super_admin')
+                        if($this->session->uloga_korisnika == 'admin' or $this->session->uloga_korisnika == 'super_admin')//adminovi linkovi
                         {
                             echo anchor('admin/knjige', 'Administracija Knjiga', array('class' => 'dropdown-item'));
                         }
                         print('<div class="dropdown-divider"></div>');
                         echo anchor('korisnik/odjava', 'Odjavite se', array('class' => 'dropdown-item'));      
-                        echo anchor('korisnik/obrisi_racun', 'Obrisite Racun', array('class' => 'dropdown-item'));                                          
+                        echo anchor('korisnik/potvrdite_brisanje', 'Obrisite Racun', array('class' => 'dropdown-item'));                                          
                         print('</div></li>');
                     }
                 ?>

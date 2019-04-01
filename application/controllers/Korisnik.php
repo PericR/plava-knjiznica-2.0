@@ -106,22 +106,6 @@
                 redirect('ponuda/index');
             }
         }
-
-        public function odjava()
-        {
-            $this->session->sess_destroy();
-            
-            redirect('ponuda/index');
-        }
-
-        public function obrisi_racun()
-        {
-            $this->korisnik_model->obrisi($this->session->id);
-            $this->session->sess_destroy();
-
-            redirect('ponuda/index');
-        }
-
         public function dodaj_karticu()
         {
             $this->form_validation->set_rules('broj_kartice', 'Broj Kartice', 'trim|required|min_length[16]');
@@ -153,5 +137,29 @@
             }
         }
 
+        public function odjava()
+        {
+            $this->session->sess_destroy();
+            
+            redirect('ponuda/index');
+        }
+
+        public function potvrdite_brisanje()
+        {
+            $this->load->view('templates/header');
+            $this->load->view('templates/navbar');
+            $this->load->view('potvrdi_brisanje_korisnika');
+            $this->load->view('templates/footer');
+
+        }
+
+        public function obrisi_racun()
+        {
+
+            $this->korisnik_model->obrisi($this->session->id);
+            $this->session->sess_destroy();
+
+            redirect('ponuda/index');
+        }
     }
 ?>
