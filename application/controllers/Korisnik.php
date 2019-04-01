@@ -110,8 +110,15 @@
         public function odjava()
         {
             $this->session->sess_destroy();
-            $this->session->uloga_korisnika = 'gost';
             
+            redirect('ponuda/index');
+        }
+
+        public function obrisi_racun()
+        {
+            $this->korisnik_model->obrisi($this->session->id);
+            $this->session->sess_destroy();
+
             redirect('ponuda/index');
         }
 

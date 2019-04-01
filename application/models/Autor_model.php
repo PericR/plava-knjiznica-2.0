@@ -26,7 +26,7 @@
 
         public function daj_autora($id)
         {
-            $query = $this->db->get_where('autor', array('id' => $id));
+            $query = $this->db->get_where('autor', array('id' => $id), 1);
             return $query->row_array();
         }
     }

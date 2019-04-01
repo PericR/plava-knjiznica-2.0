@@ -25,6 +25,11 @@
             return $this->db->insert('korisnik', $data);
         }
 
+        public function obrisi($id_korisnika)
+        {
+            $this->db->delete('korisnik', array('id' => $id_korisnika), 1);
+        }
+
         public function provjeri_korisnicko_ime($korisnicko_ime)
         {
             $query = $this->db->get_where('korisnik', array('korisnicko_ime' => $korisnicko_ime), 1);

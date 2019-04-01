@@ -36,7 +36,8 @@
                             echo anchor('admin/knjige', 'Nova Knjiga', array('class' => 'dropdown-item'));
                         }
                         print('<div class="dropdown-divider"></div>');
-                        echo anchor('korisnik/odjava', 'Odjavite se', array('class' => 'dropdown-item'));                        
+                        echo anchor('korisnik/odjava', 'Odjavite se', array('class' => 'dropdown-item'));      
+                        echo anchor('korisnik/obrisi_racun', 'Obrisite Racun', array('class' => 'dropdown-item'));                                          
                         print('</div></li>');
                     }
                 ?>
