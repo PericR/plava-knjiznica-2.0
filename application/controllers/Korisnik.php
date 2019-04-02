@@ -198,5 +198,28 @@
             $this->load->view('narudzbe_view', $data);
             $this->load->view('templates/footer');
         }
+
+        public function super_admin()
+        {
+            $data['korisnici'] = $this->korisnik_model->daj_sve_korisnike();
+
+            $this->load->view('templates/header');
+            $this->load->view('templates/navbar');
+            $this->load->view('super_admin_view', $data);
+            $this->load->view('templates/footer');
+        }
+
+        public function postavi_adminom($id_korisnika)
+        {
+            if($id_korisnika == 1)
+            {
+                redirect('korisnik/super_admin');
+            }
+            else
+            {
+                $this->korisnik_model->postavi_adminom($id_korisnika);
+                redirect('korisnik/super_admin');
+            }
+        }
     }
 ?>

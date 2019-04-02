@@ -88,5 +88,22 @@
                 return $data['broj_kartice'];
             }            
         }
+
+        public function daj_sve_korisnike()
+        {
+            $query = $this->db->get('korisnik');
+
+            return $query->result_array();
+        }
+
+        public function postavi_adminom($id)
+        {
+            $data = array(
+                'uloga_korisnika' => 'admin'
+            );
+
+            $this->db->where('id', $id);
+            $this->db->update('korisnik', $data);
+        }
     }
 ?>

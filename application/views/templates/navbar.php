@@ -32,10 +32,16 @@
                         echo anchor('korisnik/dodaj_karticu', 'Dodaj Karticu', array('class' => 'dropdown-item'));
                         echo anchor('korisnik/narudzbe', 'Prošle Narudžbe', array('class' => 'dropdown-item'));
 
-                        if($this->session->uloga_korisnika == 'admin' or $this->session->uloga_korisnika == 'super_admin')//adminovi linkovi
+                        if($this->session->uloga_korisnika == 'admin')//adminovi linkovi
                         {
                             echo anchor('knjiga/knjige', 'Administracija Knjiga', array('class' => 'dropdown-item'));
                         }
+                        if($this->session->uloga_korisnika == 'super_admin')//super adminovi linkovi
+                        {
+                            echo anchor('knjiga/knjige', 'Administracija Knjiga', array('class' => 'dropdown-item'));
+                            echo anchor('korisnik/super_admin', 'Super Admin', array('class' => 'dropdown-item'));
+                        }
+
                         print('<div class="dropdown-divider"></div>');
                         echo anchor('korisnik/odjava', 'Odjavite se', array('class' => 'dropdown-item'));      
                         echo anchor('korisnik/potvrdite_brisanje', 'Obrisite Racun', array('class' => 'dropdown-item'));                                          
