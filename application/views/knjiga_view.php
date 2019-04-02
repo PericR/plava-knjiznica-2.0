@@ -106,6 +106,7 @@
                 Nedostupne
             </button>
         </form>
+        <hr>
     </div>
 </div>
 
