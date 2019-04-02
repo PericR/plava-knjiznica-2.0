@@ -27,6 +27,7 @@
             if($this->form_validation->run() == FALSE)
             {
                 $data['autori'] = $this->autor_model->daj_sve();
+                $data['knjige'] = $this->knjiga_model->daj_sve();
                 //loadamo view zbog prikaza greske u formi
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
@@ -51,6 +52,8 @@
             if($this->form_validation->run() == FALSE)
             {                
                 $data['autori'] = $this->autor_model->daj_sve();
+                $data['knjige'] = $this->knjiga_model->daj_sve();
+
                 //loadamo view zbog prikaza greske u formi
                 $this->load->view('templates/header');
                 $this->load->view('templates/navbar');
