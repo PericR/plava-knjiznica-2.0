@@ -1,4 +1,4 @@
-<div class="row align-items-center h-100">
+<div class="row align-items-top h-100">
     <div class="col-md-4 offset-md-1">   
         <hr>     
         <h2>Unesite podatke o autoru</h2>
@@ -85,7 +85,7 @@
             <button class="btn btn-primary" type="submit" name="postavi_dostupne">
                 Dostupne
             </button>
-        </form>
+        </form>        
     </div>
 
     <div class="col-md-4 offset-md-1">        
@@ -106,7 +106,6 @@
                 Nedostupne
             </button>
         </form>
-        <hr>
     </div>
 </div>
 

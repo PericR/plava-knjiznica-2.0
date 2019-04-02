@@ -2,3 +2,8 @@
     background-color: lightskyblue;
 }
 
+.container{
+    background-color: lightgray;
+    min-height: 100%;
+    height: 100%;
+}
