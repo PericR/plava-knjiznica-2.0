@@ -34,7 +34,7 @@
 
                         if($this->session->uloga_korisnika == 'admin' or $this->session->uloga_korisnika == 'super_admin')//adminovi linkovi
                         {
-                            echo anchor('admin/knjige', 'Administracija Knjiga', array('class' => 'dropdown-item'));
+                            echo anchor('knjiga/knjige', 'Administracija Knjiga', array('class' => 'dropdown-item'));
                         }
                         print('<div class="dropdown-divider"></div>');
                         echo anchor('korisnik/odjava', 'Odjavite se', array('class' => 'dropdown-item'));      

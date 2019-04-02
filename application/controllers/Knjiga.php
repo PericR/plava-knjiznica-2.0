@@ -1,5 +1,5 @@
 <?php
-    class Admin extends CI_Controller
+    class Knjiga extends CI_Controller
     {
         function __construct()    
         {
@@ -39,7 +39,7 @@
                 $ime_autora = $ime_autora['ime'].' '.$ime_autora['prezime'];
                 $this->knjiga_model->dodaj_knjigu($this->input->post('autor_id'), $this->input->post('naziv'), $ime_autora, $this->input->post('cijena'));
 
-                redirect('admin/knjige');
+                redirect('knjiga/knjige');
             }
         }
 
@@ -61,14 +61,14 @@
             {
                 $this->autor_model->dodaj_autora($this->input->post('ime'), $this->input->post('prezime'));
 
-                redirect('admin/knjige');
+                redirect('knjiga/knjige');
             }
         }
 
         public function postavite_dostupnost($dostupnost)
         {
             $this->knjiga_model->postavi_dostupnost($dostupnost, $this->input->post('knjige'));
-            redirect('admin/knjige');
+            redirect('knjiga/knjige');
         }
     }
 ?>
