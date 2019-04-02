@@ -2,7 +2,7 @@
     <div class="col-md-4 offset-md-1">   
         <hr>     
         <h2>Unesite podatke o autoru</h2>
-        <?php echo form_open('admin/dodaj_autora'); ?>
+        <?php echo form_open('knjiga/dodaj_autora'); ?>
 
             <div class="form-group">
                 <label for="ime">Ime Autora</label>
@@ -29,7 +29,7 @@
     <div class="col-md-4 offset-md-1">        
         <hr>
         <h2>Unesite podatke o Knjizi</h2>
-        <?php echo form_open('admin/dodaj_knjigu'); ?>
+        <?php echo form_open('knjiga/dodaj_knjigu'); ?>
 
             <div class="form-group">
                 <label for="naziv">Naziv Knjige</label>
@@ -71,7 +71,7 @@
     <div class="col-md-4 offset-md-1">        
         <hr>
         <h2>Postavite kao dostupne</h2>
-        <?php echo form_open('admin/postavite_dostupnost/1'); ?>
+        <?php echo form_open('knjiga/postavite_dostupnost/1'); ?>
 
             <div class="form group" id="prikazKnjiga">
                 <ul class="list-unstyled">
@@ -91,7 +91,7 @@
     <div class="col-md-4 offset-md-1">        
         <hr>
         <h2>Postavite kao nedostupne</h2>
-        <?php echo form_open('admin/postavite_dostupnost/0'); ?>
+        <?php echo form_open('knjiga/postavite_dostupnost/0'); ?>
 
             <div class="form group" id="prikazNedostupnihKnjiga">
                 <ul class="list-unstyled">
