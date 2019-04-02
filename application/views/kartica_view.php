@@ -1,4 +1,4 @@
-<div class="row align-items-center h-100">
+<div class="row align-items-top h-100">
     <div class="col-md-6 offset-md-3">
         <hr>
         <h2>Unesite podatke o vašoj kartici</h2>

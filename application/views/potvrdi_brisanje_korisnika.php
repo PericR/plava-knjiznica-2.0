@@ -1,5 +1,5 @@
 <br>
-<div class= "row">
+<div class= "row align-items center">
     <div class="col-md-6 offset-md-1">
         <h5>da li ste sigurni da želite obrisati račun?</h5> 
     </div>

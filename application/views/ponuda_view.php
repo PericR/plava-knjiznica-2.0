@@ -15,7 +15,7 @@
             <li v-for="knjiga in knjige" class="media">
                 <div class="media-body">
                     <h5 class="mt-0 mb-1">{{knjiga.knjiga.naziv}}</h5>
-                    Autor: {{knjiga.knjiga.autor}} cijena: {{knjiga.knjiga.cijena}}
+                    Autor: {{knjiga.knjiga.autor}} cijena: {{knjiga.knjiga.cijena}} Km
                     <br>
                     <a :href="knjiga.knjiga.link">
                         <button class="btn btn-primary">Kupi me</button>
