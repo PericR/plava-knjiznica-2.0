@@ -70,7 +70,10 @@
 
         public function postavite_dostupnost($dostupnost)
         {
-            $this->knjiga_model->postavi_dostupnost($dostupnost, $this->input->post('knjige'));
+            if($this->input->post('knjige') != null)
+            {
+                $this->knjiga_model->postavi_dostupnost($dostupnost, $this->input->post('knjige'));
+            }
             redirect('knjiga/knjige');
         }
     }
