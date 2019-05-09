@@ -199,6 +199,11 @@
             $this->load->view('templates/footer');
         }
 
+        public function daj_narudzbe_json()
+        {
+            echo(json_encode($this->narudzba_model->daj_narudzbe($this->session->id)));
+        }
+
         public function super_admin()
         {
             $data['korisnici'] = $this->korisnik_model->daj_sve_korisnike();

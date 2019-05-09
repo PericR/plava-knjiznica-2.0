@@ -9,5 +9,7 @@
         <?php echo link_tag('static/style.css'); ?>
         <!-- development version, includes helpful console warnings -->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     </head>
     <body id="body">

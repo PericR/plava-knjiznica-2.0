@@ -12,10 +12,10 @@
         
             <tbody>
                 <tr v-for="narudzba in narudzbe">
-                    <th scope="row">{{narudzba.narudzba.id}}</th>
-                    <td>{{narudzba.narudzba.knjiga}}</td>
-                    <td>{{narudzba.narudzba.datum}}</td>
-                    <td>{{narudzba.narudzba.kartica}}</td>
+                    <th scope="row">{{narudzba.id}}</th>
+                    <td>{{narudzba.ime_knjige}}</td>
+                    <td>{{narudzba.datum_narudzbe}}</td>
+                    <td>{{narudzba.broj_kartice}}</td>
                 </tr>
             </tbody>
         </table>
@@ -24,16 +24,16 @@
 
 <script>
     new Vue({
-        el: '#prikazNarudzbi',
-        data:{
-        narudzbe: [//punimo podatcima koje smo dobili od controllera
-            <?php
-                foreach($narudzbe as $narudzba){
-                    $narudzba_data = '{narudzba: {id: '.$narudzba['id'].', knjiga: "'.$narudzba['ime_knjige'].'", kartica: "'.$narudzba['broj_kartice'].'", datum: "'.$narudzba['datum_narudzbe'].'"}},';
-                    echo $narudzba_data;
-                }
-            ?>
-        ]
+        el:'#prikazNarudzbi',
+        data(){
+            return{
+                narudzbe: null
+            }
+        },
+        mounted(){
+            axios
+            .get('http://[::1]/knjiznica2.0/index.php/korisnik/daj_narudzbe_json')
+            .then(response => (this.narudzbe = response.data));
         }
-    })
+    });
 </script>
