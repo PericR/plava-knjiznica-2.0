@@ -76,8 +76,8 @@
             <div class="form group" id="prikazKnjiga">
                 <ul class="list-unstyled">
                     <li v-for="knjiga in knjige">
-                        <input type="checkbox" name="knjige[]" :value="knjiga.knjiga.id">
-                        {{knjiga.knjiga.naziv}}, {{knjiga.knjiga.autor}}, ID:{{knjiga.knjiga.id}}
+                        <input type="checkbox" name="knjige[]" :value="knjiga.id">
+                        {{knjiga.naziv}}, {{knjiga.ime_autora}}, ID:{{knjiga.id}}
                     </li>
                 </ul>
             </div>
@@ -96,8 +96,8 @@
             <div class="form group" id="prikazNedostupnihKnjiga">
                 <ul class="list-unstyled">
                     <li v-for="knjiga in knjige">
-                        <input type="checkbox" name="knjige[]" :value="knjiga.knjiga.id">
-                        {{knjiga.knjiga.naziv}}, {{knjiga.knjiga.autor}}, ID:{{knjiga.knjiga.id}}
+                        <input type="checkbox" name="knjige[]" :value="knjiga.id">
+                        {{knjiga.naziv}}, {{knjiga.ime_autora}}, ID:{{knjiga.id}}
                     </li>
                 </ul>
             </div>
@@ -111,30 +111,30 @@
 
 <script>
     new Vue({
-        el: '#prikazKnjiga',
-        data:{
-            knjige: [//punimo podatcima koje smo dobili od controllera
-                <?php
-                    foreach($knjige as $knjiga){
-                        $knjiga_data = '{knjiga: {id: '.$knjiga['id'].', autor: "'.$knjiga['ime_autora'].'", naziv: "'.$knjiga['naziv'].'", cijena: '.$knjiga['cijena'].'}},';
-                        echo $knjiga_data;
-                    }
-                ?>
-            ]
+        el:'#prikazKnjiga',
+        data(){
+            return{
+                knjige: null
+            }
+        },
+        mounted(){
+            axios
+            .get('<?php echo base_url()?>index.php/knjiga/knjige_json')
+            .then(response => (this.knjige = response.data));
         }
     });
 
     new Vue({
-        el: '#prikazNedostupnihKnjiga',
-        data:{
-            knjige: [//punimo podatcima koje smo dobili od controllera
-                <?php
-                    foreach($knjige as $knjiga){
-                        $knjiga_data = '{knjiga: {id: '.$knjiga['id'].', autor: "'.$knjiga['ime_autora'].'", naziv: "'.$knjiga['naziv'].'", cijena: '.$knjiga['cijena'].'}},';
-                        echo $knjiga_data;
-                    }
-                ?>
-            ]
+        el:'#prikazNedostupnihKnjiga',
+        data(){
+            return{
+                knjige: null
+            }
+        },
+        mounted(){
+            axios
+            .get('<?php echo base_url()?>index.php/knjiga/knjige_json')
+            .then(response => (this.knjige = response.data));
         }
     });
 </script>

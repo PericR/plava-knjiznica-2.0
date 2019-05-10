@@ -32,7 +32,7 @@
         },
         mounted(){
             axios
-            .get('http://[::1]/knjiznica2.0/index.php/korisnik/daj_narudzbe_json')
+            .get('<?php echo base_url()?>index.php/korisnik/daj_narudzbe_json')
             .then(response => (this.narudzbe = response.data));
         }
     });

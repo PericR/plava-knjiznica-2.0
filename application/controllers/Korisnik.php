@@ -191,11 +191,9 @@
 
         public function narudzbe()
         {
-            $data['narudzbe'] = $this->narudzba_model->daj_narudzbe($this->session->id);
-
             $this->load->view('templates/header');
             $this->load->view('templates/navbar');
-            $this->load->view('narudzbe_view', $data);
+            $this->load->view('narudzbe_view');
             $this->load->view('templates/footer');
         }
 

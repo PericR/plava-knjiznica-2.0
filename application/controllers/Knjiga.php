@@ -11,12 +11,16 @@
         public function knjige()
         {
             $data['autori'] = $this->autor_model->daj_sve();
-            $data['knjige'] = $this->knjiga_model->daj_sve();
 
             $this->load->view('templates/header');
             $this->load->view('templates/navbar');
             $this->load->view('knjiga_view', $data);
             $this->load->view('templates/footer');    
+        }
+
+        public function knjige_json()
+        {
+            echo(json_encode($this->knjiga_model->daj_sve()));
         }
 
         public function dodaj_knjigu()
