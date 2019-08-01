@@ -17,7 +17,7 @@
             if($this->form_validation->run() == FALSE)
             {
                 if(isset($this->session->id))
-                {   //sprjecavamo pristup loginu nakon logina
+                {   //sprjecavamo pristup loginu nakon uspjesnog logina
                     redirect('ponuda/index');
                 }
 
